@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdoksexcakmop"]
+[gd_scene load_steps=9 format=3 uid="uid://cdoksexcakmop"]
 
 [ext_resource type="PackedScene" uid="uid://y5a4e3ajuy2r" path="res://scenes/StonePlatform.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://datfp8kxjrjg" path="res://scenes/BlueShip.tscn" id="2"]
 [ext_resource type="Script" path="res://scenes/PlatformBlue.gd" id="3"]
 [ext_resource type="Script" path="res://scenes/ObjectiveArea.gd" id="4"]
+[ext_resource type="Script" path="res://scenes/DeadzoneArea.gd" id="5_geg2d"]
+[ext_resource type="Texture2D" uid="uid://lj4pi1ekfvp5" path="res://assets/SkyBackground.jpg" id="6_xp7u2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(138.75, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ecl8"]
+size = Vector2(1308, 779)
 
 [node name="MainLevel" type="Node"]
 
@@ -30,4 +35,20 @@ script = ExtResource("4")
 position = Vector2(70.625, 40)
 shape = SubResource("1")
 
+[node name="DeadzoneArea" type="Area2D" parent="."]
+position = Vector2(-61, -47)
+script = ExtResource("5_geg2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadzoneArea"]
+position = Vector2(644, 379.5)
+shape = SubResource("RectangleShape2D_4ecl8")
+
+[node name="SkyBackground" type="Sprite2D" parent="."]
+visibility_layer = 3
+z_index = -5
+position = Vector2(581.125, 332.875)
+scale = Vector2(0.217589, 0.193514)
+texture = ExtResource("6_xp7u2")
+
 [connection signal="body_entered" from="ObjectiveArea" to="ObjectiveArea" method="_on_ObjectiveArea_body_entered"]
+[connection signal="body_exited" from="DeadzoneArea" to="DeadzoneArea" method="_on_DeadzoneArea_body_exited"]

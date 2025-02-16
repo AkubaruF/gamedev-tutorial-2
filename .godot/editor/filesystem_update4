@@ -1,5 +1,12 @@
 res://default_env.tres
 res://scenes/MainLevel.tscn
-res://scenes/StonePlatform.tscn
-res://scenes/BlueShip.tscn
 res://scenes/PlatformBlue.gd
+res://scenes/DeadzoneArea.gd
+res://scenes/ObjectiveArea.gd
+res://scenes/SecondLevel.tscn
+res://scenes/BlueShip.tscn
+res://scenes/StonePlatform.tscn
+res://scenes/GreenShip.tscn
+res://scenes/SnowPlatform.tscn
+res://README.md
+res://scenes/PlatformWhite.gd
